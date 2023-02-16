@@ -5,4 +5,5 @@
   springMVC
   mybatis
   redis
+  mysql
 # 前端请前往 https://github.com/Jori2021/ZHOU
