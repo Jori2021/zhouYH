@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.store.storemanagement.mapper.TotalMapper">
+<!--    <resultMap id="countTotal" type="com.store.storemanagement.entity.Total">-->
+
+<!--    </resultMap>-->
+<!--    <insert id="count" >-->
+<!--        INSERT INTO wh_total(in_number,out_number,in_price,out_price,profit,time_quantum) SELECT ins.in_number as inNumber,outs.out_number as outNumber,ins.in_price as inPrice,outs.out_price as outPrice,outs.out_price-ins.in_price as profit,ins.time_quantum as timeQuantum FROM(SELECT SUM( product_number ) AS in_number,SUM( sums ) AS in_price,QUARTER ( date_time ) AS time_quantum FROM wh_in_inventory GROUP BY QUARTER ( date_time ) ORDER BY QUARTER ( date_time )) AS ins,(SELECT SUM( product_number ) AS out_number,SUM( sums ) AS out_price,QUARTER ( date_time ) AS time_quantum FROM wh_out_inventory GROUP BY QUARTER ( date_time ) ORDER BY QUARTER ( date_time )) AS outs WHERE ins.time_quantum = outs.time_quantum;-->
+<!--    </insert>-->
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.store.storemanagement.mapper.ProductMapper">
+
+<!--    <update id="update">-->
+<!--        update wh_product-->
+<!--            <set>-->
+<!--                <if test="product_name !=null">-->
+<!--                    product_name=#{product_name}-->
+<!--                </if>-->
+<!--                <if test="product_standard !=null">-->
+<!--                    product_standard=#{product_standard}-->
+<!--                </if>-->
+<!--                <if test="product_price !=null">-->
+<!--                    product_price=#{product_price}-->
+<!--                </if>-->
+<!--                <if test="up_limit !=null">-->
+<!--                    up_limit=#{up_limit}-->
+<!--                </if>-->
+<!--                <if test="down_limit !=null">-->
+<!--                    down_limit=#{down_limit}-->
+<!--                </if>-->
+<!--            </set>-->
+<!--            <where>-->
+<!--                id=#{id}-->
+<!--            </where>-->
+<!--    </update>-->
+    <resultMap id="pageProduct" type="com.store.storemanagement.entity.Product">
+        <result column="id" property="id"/>
+        <result column="product_id" property="productId"/>
+        <result column="product_name" property="productName"/>
+        <result column="product_standard" property="productStandard"/>
+        <result column="product_price" property="productPrice"/>
+        <result column="up_limit" property="upLimit"/>
+        <result column="down_limit" property="downLimit"/>
+        <result column="status" property="status"/>
+    </resultMap>
+    <select id="findPage" resultMap="pageProduct">
+        select * from wh_product
+            <where>
+                <if test="productId != null and productId != ''">
+                    product_id like concat('%',#{productId},'%')
+                </if>
+<!--                <if test="productName != null and productName != ''">-->
+<!--                    and product_name like concat('%',#{productName},'%')-->
+<!--                </if>-->
+                    and status=0
+            </where>
+    </select>
+
+
+</mapper>

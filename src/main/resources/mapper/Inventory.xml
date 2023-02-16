@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.store.storemanagement.mapper.InventoryMapper">
+
+        <update id="update">
+            update wh_inventory <!--set productId=#{productId},inventoryId=#{inventoryId},entrepotId=#{entrepotId},primeCost=#{primeCost},productNumber=#{productNumber}, dataProduct=#{dataProduct} where id=#{id}-->
+                <set>
+                    <if test="productId !=null">
+                        product_id=#{productId},
+                    </if>
+                        inventory_id=#{inventoryId},
+                    <if test="entrepotId !=null">
+                        entrepot_id=#{entrepotId},
+                    </if>
+                    <if test="inPrice !=null">
+                        in_price=#{inPrice},
+                    </if>
+                    <if test="productNumber !=null">
+                        product_number=#{productNumber},
+                    </if>
+                        data_product=#{dataProduct}
+                </set>
+                <where>
+                    id=#{id}
+                </where>
+        </update>
+</mapper>
